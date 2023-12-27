@@ -1,5 +1,5 @@
 import express from "express";
-import { addLecture, createCourse, deleteCourse, deleteLecture, getAllCourses, getCourseLectures } from "../controllers/courseControllers.js";
+import { addLecture, createCourse, deleteCourse, deleteLecture, getAllCourses, getCourseLectures  } from "../controllers/courseControllers.js";
 import singleUpload from "../middlewares/multer.js";
 import { authorizeAdmin, authorizeSubscribers, isAuthenticated } from "../middlewares/auth.js";
 

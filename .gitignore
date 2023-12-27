@@ -1,1 +1,5 @@
 /node_modules
+
+/credential.txt
+
+/config/config.env

@@ -2,6 +2,7 @@ import express from "express";
 import {config} from "dotenv";
 import ErrrorMiddleware from "./middlewares/Error.js";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 
 config({
@@ -18,6 +19,11 @@ const app = express();
  ));
 
  app.use(cookieParser());
+ app.use(cors({
+    origin:process.env.FRONTEND_URL,
+    credentials:true,
+    methods:["GET","POST","PUT","DELETE"],
+ }));
 
 
 // Importing & Using Routes
@@ -33,6 +39,8 @@ app.use("/api/v1",other);
 
 
 export default app;
+
+app.get("./",(req,res) => res.send(`<h1>Server is Working. Click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`));
 
 
 app.use(ErrrorMiddleware);

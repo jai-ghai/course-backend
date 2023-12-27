@@ -64,6 +64,7 @@ export const getCourseLectures = catchAsyncError(async (req, res, next) => {
   if (!course) return next(new ErrorHandler("Course not found", 404));
 
   course.views += 1;
+
   await course.save();
 
   res.status(200).json({
@@ -71,6 +72,8 @@ export const getCourseLectures = catchAsyncError(async (req, res, next) => {
     lectures: course.lectures,
   });
 });
+
+
 
 // Max video size 100mb
 export const addLecture = catchAsyncError(async (req, res, next) => {
